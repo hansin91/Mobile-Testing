@@ -30,6 +30,33 @@ appium driver install uiautomator2
 npm install
 ```
 
+### Modify wdio.conf.ts file
+
+#### Edit the appPath
+
+```bash
+const appPath = path.join(__dirname, "apk", "ApiDemos-debug.apk");
+```
+
+#### Edit capabilities
+
+```bash
+  capabilities: [
+    {
+      platformName: "Android",
+      "appium:deviceName": "Pixel4XL",
+      "appium:platformVersion": "10.0",
+      "appium:automationName": "UiAutomator2",
+      "appium:app": appPath,
+      "appium:noReset": false,
+      "appium:fullReset": false,
+      "appium:uiautomator2ServerInstallTimeout": 60000,
+      "appium:uiautomator2ServerLaunchTimeout": 60000,
+      "appium:adbExecTimeout": 120000,
+    },
+  ],
+```
+
 ### Run test file
 
 ```bash
