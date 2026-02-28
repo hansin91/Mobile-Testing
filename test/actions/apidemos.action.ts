@@ -1,39 +1,47 @@
 import { APIDemosPage } from "../pageobjects/apidemos.page";
 
 export class APIDemosActions {
-    async waitForAppBtn() {
-        await APIDemosPage.appBtn().waitForDisplayed({ timeout: 5000 });
-    }
+  async waitForAppBtn() {
+    await APIDemosPage.appBtn().waitForDisplayed({ timeout: 5000 });
+  }
 
-    async clickAppBtn() {
-        await APIDemosPage.appBtn().click();
-    }
+  async clickAppBtn() {
+    await APIDemosPage.appBtn().click();
+  }
 
-    async verifyAppBtn() {
-        return await APIDemosPage.appBtn().isDisplayed();
-    }
+  async verifyAppBtn() {
+    return await APIDemosPage.appBtn().isDisplayed();
+  }
 
-    async ClickSearchBtn() {
-        await APIDemosPage.searchBtn().click();
-    }
+  async waitForTextEntryDialogBtn() {
+    await APIDemosPage.textEntryDialogBtn().waitForDisplayed({ timeout: 5000 });
+  }
 
-    async ClickInvokeSearchBtn() {
-        await APIDemosPage.InvokeSearchBtn().click();
-    }
+  async clickAlertDialogsBtn() {
+    await APIDemosPage.alertDialogsBtn().click();
+  }
 
-    async fillQueryField(query: string) {
-        await APIDemosPage.prefillQueryField().setValue(query);
-    }
+  async clickTextEntryDialogBtn() {
+    await APIDemosPage.textEntryDialogBtn().click();
+  }
 
-    async fillAppDataField(query: string) {
-        await APIDemosPage.appDataField().setValue(query);
-    }
+  async fillNameInput(value: string) {
+    await APIDemosPage.inputNameEntryDialog().setValue(value);
+  }
 
-    async getQueryFieldValue() {
-        return await APIDemosPage.prefillQueryField().getText();
-    }
+  async fillPasswordInput(value: string) {
+    await APIDemosPage.inputPasswordEntryDialog().setValue(value);
+  }
 
-    async getAppDataFieldValue() {
-        return await APIDemosPage.appDataField().getText();
-    }
+  async getNameFieldValue() {
+    return await APIDemosPage.inputNameEntryDialog().getText();
+  }
+
+  async getPasswordFieldValue() {
+    return await APIDemosPage.inputPasswordEntryDialog().getText();
+  }
+
+  async clickDialogOKBtn() {
+    await APIDemosPage.dialogOKBtn().click();
+  }
 }
